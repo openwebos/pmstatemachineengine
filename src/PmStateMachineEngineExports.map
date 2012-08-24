@@ -1,0 +1,51 @@
+# @@@LICENSE
+#
+#      Copyright (c) 2009-2012 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# LICENSE@@@
+
+#Exported functions
+
+# The first line within the extern "C++" block (the
+# *sme::*; line) exports the typeinfo. For more info,
+# see "Working with GNU Export Maps" - http://accu.org/index.php/journals/1372.
+#
+# @todo we should probably be using
+# "__attribute__ ((__visibility__ ("default")))" instead for more granular,
+# explicit control of what's to be exported.
+
+{
+    global:
+        extern "C++" {
+            *sme::*;
+            sme::*;
+	    FsmInitMachine;
+	    FsmInitState;
+	    FsmInsertState;
+	    FsmStart;
+	    FsmDispatchEvent;
+	    FsmBeginTransition;
+	    FsmDbgEnableLogging;
+	    FsmDbgEnableLoggingViaPmLogLib;
+	    FsmDbgDisableLogging;
+	    FsmDbgSetLogLevelThreshold;
+	    FsmDbgPeekCurrentState;
+	    FsmDbgPeekMachineName;
+	    FsmDbgPeekStateName;
+	    FsmDbgPeekParentState
+        };
+    local:
+        *;
+};
